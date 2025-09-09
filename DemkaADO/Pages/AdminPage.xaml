@@ -9,6 +9,125 @@
       Title="AdminPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="1" x:Name="LVServices">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasDiscount}" Value="True">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Cost}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasDiscount}" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Discount}" Value="False">
+                                                <Setter Property="TextDecorations" Value="None"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text="{Binding FinalCost}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap" Margin="10,0,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Discount}" Value="0">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text="за" Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding DurationInSeconds}" FontFamily="Tahoma" TextAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock Text="минут" Margin="10,0,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Text="* скидка">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasDiscount}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Discount, StringFormat={}{0}%}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap" Margin="10,0,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasDiscount}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <Image Source="{Binding MainImagePath}" Width="90" Height="60" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <Button x:Name="ChangeBtn" Content="Редактировать" Height="20" Width="90" BorderThickness="1" FontFamily="Tahoma" Background="White" BorderBrush="Gray" Foreground="Gray" Click="ChangeBtn_Click"/>
+                            <Button x:Name="DeleteBtn" Content="Удалить" Height="20" Width="80" BorderThickness="1" FontFamily="Tahoma" Background="White" BorderBrush="Gray" Foreground="Gray" Click="DeleteBtn_Click" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label x:Name="Counter" Content="Результатов поиска: " HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15" Grid.Row="2" FontFamily="Tahoma"/>
+        <TextBlock Text="Фильтрация по цене:" FontFamily="Tahoma" Grid.Row="0" Margin="25,0,0,0"/>
+        <ComboBox x:Name="FilterBox" Grid.Row="0" Height="25" Width="140" HorizontalAlignment="Left" Margin="15,10,0,0" FontFamily="Tahoma" SelectionChanged="FilterBox_SelectionChanged">
+            <ComboBoxItem Content="По возрастанию"/>
+            <ComboBoxItem Content="По убыванию"/>
+        </ComboBox>
+
+        <TextBlock Text="Фильтрация по размеру скидки:" HorizontalAlignment="Center" Grid.Row="0" FontFamily="Tahoma"/>
+        <ComboBox x:Name="DiscountBox" Grid.Row="0" Height="25" Width="140" HorizontalAlignment="Center" Margin="0,10,0,0" FontFamily="Tahoma" SelectionChanged="DiscountBox_SelectionChanged">
+            <ComboBoxItem Content="от 0 до 5%"/>
+            <ComboBoxItem Content="от 5 до 15%"/>
+            <ComboBoxItem Content="от 15 до 30%"/>
+            <ComboBoxItem Content="от 30 до 70%"/>
+            <ComboBoxItem Content="от 70 до 100%"/>
+        </ComboBox>
+
+        <TextBlock Text="Поиск" FontFamily="Tahoma" HorizontalAlignment="Right" Margin="0,0,66,0"/>
+        <TextBox x:Name="Search" FontFamily="Tahoma" HorizontalAlignment="Right" Margin="0,10,15,0" Height="25" Width="140" TextChanged="Search_TextChanged"/>
+        <Button x:Name="ClearFilters" Style="{StaticResource StyleBtn}" FontFamily="Tahoma" Content="Сбросить фильтры" Height="25" Width="140" Grid.Row="2" Click="ClearFilters_Click"/>
     </Grid>
 </Page>

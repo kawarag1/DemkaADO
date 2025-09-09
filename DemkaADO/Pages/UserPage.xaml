@@ -32,21 +32,20 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
-                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
-                            <Label Content="Наименование" FontFamily="Tahoma"/>
+                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding Title}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
-                            <Label Content="Цена" FontFamily="Tahoma"/>
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding Cost}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
@@ -61,7 +60,7 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <TextBlock Text="{Binding FinalCost}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap">
+                            <TextBlock Text="{Binding FinalCost}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap" Margin="10,0,0,0">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Style.Triggers>
@@ -72,19 +71,36 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
+                            <TextBlock Text="за" Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding DurationInSeconds}" FontFamily="Tahoma" TextAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock Text="минут" Margin="10,0,0,0"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center">
-                            <Label Content="Продолжительность" FontFamily="Tahoma"/>
-                            <TextBlock Text="{Binding DurationInSeconds}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap"/>
+                        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Text="* скидка">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasDiscount}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Discount, StringFormat={}{0}%}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap" Margin="10,0,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasDiscount}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </StackPanel>
-
-                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
-                            <Label Content="Размер скидки" FontFamily="Tahoma"/>
-                            <TextBlock Text="{Binding Discount, StringFormat={}{0}%}" FontFamily="Tahoma" TextAlignment="Center" TextWrapping="Wrap"/>
-                        </StackPanel>
-
-                        <Image Source="{Binding MainImagePath}" Width="90" Height="60" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"/>
+                        <Image Source="{Binding MainImagePath}" Width="90" Height="60" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -24,5 +24,35 @@ namespace DemkaADO.Pages
         {
             InitializeComponent();
         }
+
+        private void FilterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DiscountBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ChangeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ClearFilters_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

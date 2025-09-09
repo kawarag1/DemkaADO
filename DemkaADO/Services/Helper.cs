@@ -8,12 +8,12 @@ namespace DemkaADO.Models
 {
     public class Helper
     {
-        public static demka_test2Entities _context;
-        public static demka_test2Entities GetContext()
+        public static demka_test2Entities1 _context;
+        public static demka_test2Entities1 GetContext()
         {
             if (_context == null)
             {
-                _context = new demka_test2Entities();
+                _context = new demka_test2Entities1();
             }
             return _context;
         }

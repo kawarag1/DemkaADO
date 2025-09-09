@@ -70,19 +70,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Client.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientService.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DocumentByService.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Gender.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Manufacturer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -99,20 +99,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ModelForPC.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelForPC.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelForPC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelForPC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductPhoto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductSale.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Service.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ServicePhoto.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -124,7 +139,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelForPC.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
@@ -186,6 +201,13 @@
     </EntityDeploy>
     <None Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\ModelForPC.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelForPC.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ModelForPC.edmx.diagram">
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,6 +275,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelForPC.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
+      <LastGenOutput>ModelForPC.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelForPC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
+      <LastGenOutput>ModelForPC.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
