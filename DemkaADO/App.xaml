@@ -1,0 +1,14 @@
+﻿<Application x:Class="DemkaADO.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DemkaADO"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button" x:Key="StyleBtn">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#ff4a6d"/>
+        </Style>
+    </Application.Resources>
+</Application>

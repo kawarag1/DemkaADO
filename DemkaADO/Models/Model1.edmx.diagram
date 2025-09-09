@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ab86a5ddc6f4055a23e4cac98fef620" Name="Diagram1">
+        <EntityTypeShape EntityType="demka_test2Model.Client" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.ClientService" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.DocumentByService" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.Gender" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.Manufacturer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.ProductPhoto" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.ProductSale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.Service" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.ServicePhoto" Width="1.5" PointX="7.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="demka_test2Model.Tag" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <AssociationConnector Association="demka_test2Model.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.AttachedProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="demka_test2Model.TagOfClient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
