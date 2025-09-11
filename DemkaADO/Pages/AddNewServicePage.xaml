@@ -1,0 +1,49 @@
+﻿<Page x:Class="DemkaADO.Pages.AddNewServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemkaADO.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddNewServicePage" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Название" FontFamily="Tahoma" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="NameOfService" Width="260" Height="35" FontFamily="Tahoma" Margin="0,10,0,0"/>
+            <TextBlock Text="Стоимость" FontFamily="Tahoma" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="CostOfService" Width="260" Height="35" FontFamily="Tahoma" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Длительность" FontFamily="Tahoma" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Duration" Width="260" Height="35" FontFamily="Tahoma" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Описание" FontFamily="Tahoma" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Description" Width="260" Height="35" FontFamily="Tahoma" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Скидка" FontFamily="Tahoma" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Discount" Width="260" Height="35" FontFamily="Tahoma" Margin="0,10,0,0"/>
+
+            <Button x:Name="AddBtn" Content="Добавить" Margin="0,35,0,0" Width="260" Height="35" Style="{StaticResource StyleBtn}" Click="AddBtn_Click"/>
+        </StackPanel>
+
+        <Image x:Name="ImageOfService" Source="{Binding MainImagePath}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="ImageOfService_MouseDown"/>
+
+    </Grid>
+</Page>

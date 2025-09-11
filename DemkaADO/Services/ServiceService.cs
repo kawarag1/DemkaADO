@@ -17,7 +17,7 @@ namespace DemkaADO.Services
 
         public List<Service> GetServices()
         {
-            List<Service> services = db.Service.ToList();
+            List<Service> services = db.Service.AsNoTracking().ToList();
             for (int i = 0; i < services.Count; i++)
             {
                 services[i].DurationInSeconds = services[i].DurationInSeconds / 60;

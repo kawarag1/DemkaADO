@@ -102,8 +102,8 @@
                         </StackPanel>
                         <Image Source="{Binding MainImagePath}" Width="90" Height="60" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                            <Button x:Name="ChangeBtn" Content="Редактировать" Height="20" Width="90" BorderThickness="1" FontFamily="Tahoma" Background="White" BorderBrush="Gray" Foreground="Gray" Click="ChangeBtn_Click"/>
-                            <Button x:Name="DeleteBtn" Content="Удалить" Height="20" Width="80" BorderThickness="1" FontFamily="Tahoma" Background="White" BorderBrush="Gray" Foreground="Gray" Click="DeleteBtn_Click" Margin="10,0,0,0"/>
+                            <Button x:Name="ChangeBtn" Content="Редактировать" Height="20" Width="90" BorderThickness="1" FontFamily="Tahoma" CommandParameter="{Binding}" Background="White" BorderBrush="Gray" Foreground="Gray" Click="ChangeBtn_Click"/>
+                            <Button x:Name="DeleteBtn" Content="Удалить" Height="20" Width="80" BorderThickness="1" FontFamily="Tahoma" CommandParameter="{Binding}" Background="White" BorderBrush="Gray" Foreground="Gray" Click="DeleteBtn_Click" Margin="10,0,0,0"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
