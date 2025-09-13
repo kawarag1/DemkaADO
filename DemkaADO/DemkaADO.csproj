@@ -150,6 +150,12 @@
     <Compile Include="Pages\ChangeServicePage.xaml.cs">
       <DependentUpon>ChangeServicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddNewClientService.xaml.cs">
+      <DependentUpon>AddNewClientService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CloseServices.xaml.cs">
+      <DependentUpon>CloseServices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PasswordForAdmin.xaml.cs">
       <DependentUpon>PasswordForAdmin.xaml</DependentUpon>
     </Compile>
@@ -175,6 +181,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ChangeServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddNewClientService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CloseServices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,6 +294,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\ModelForPC.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
+      <LastGenOutput>ModelForPC.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelForPC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelForPC.edmx</DependentUpon>
+      <LastGenOutput>ModelForPC.cs</LastGenOutput>
+    </Content>
     <Resource Include="Images\Plug.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -290,16 +314,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModelForPC.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelForPC.edmx</DependentUpon>
-      <LastGenOutput>ModelForPC.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModelForPC.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelForPC.edmx</DependentUpon>
-      <LastGenOutput>ModelForPC.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

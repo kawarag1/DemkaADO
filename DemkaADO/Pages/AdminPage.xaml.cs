@@ -122,5 +122,15 @@ namespace DemkaADO.Pages
             Counter.Content = $"Результатов поиска: {services_.Count()}";
             LVServices.ItemsSource = services;
         }
+
+        private void LVServices_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new AddNewClientServices(LVServices.SelectedItem as Service));
+        }
+
+        private void CloseServices_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CloseServices());
+        }
     }
 }

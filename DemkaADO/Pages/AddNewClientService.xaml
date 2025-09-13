@@ -1,0 +1,65 @@
+﻿<Page x:Class="DemkaADO.Pages.AddNewClientServices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemkaADO.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CloseClientServices" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Наименование услуги" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" TextAlignment="Center"/>
+        <TextBlock x:Name="TitleText" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" TextAlignment="Center" Margin="0,40,0,0"/>
+
+        <TextBlock Text="Длительность услуги" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" TextAlignment="Center" Margin="15,0,0,0"/>
+        <TextBlock x:Name="DurationText" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" TextAlignment="Center" Margin="15,40,0,0"/>
+
+        <TextBlock Text="Дата и время начала услуги" FontSize="22" FontFamily="Tahoma" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" TextAlignment="Center" Margin="0,0,15,0"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,40,15,0">
+            <DatePicker x:Name="datePicker" 
+                SelectedDate="{Binding SelectedDateTime}"
+                DisplayDateStart="{x:Static sys:DateTime.Today}"
+                Width="120" Margin="5" FontFamily="Tahoma"/>
+
+            <TextBox x:Name="timeTextBox"
+                     Text="{Binding SelectedTime}"
+                     Width="80" Margin="5"
+                     ToolTip="Введите время в формате HH:mm" FontFamily="Tahoma"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Посетитель:" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="ClientsBox" FontFamily="Tahoma" FontSize="22" HorizontalAlignment="Center" Width="300" Height="40" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1} {2}">
+                                    <Binding Path="FirstName"/>
+                                    <Binding Path="LastName"/>
+                                    <Binding Path="Patronymic"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Style="{StaticResource StyleBtn}" x:Name="AcceptBtn" FontFamily="Tahoma" FontSize="20" Content="Записать" Width="200" Height="30" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0" Click="AcceptBtn_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>

@@ -15,7 +15,7 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="1" x:Name="LVServices">
+        <ListView Grid.Row="1" x:Name="LVServices" MouseDoubleClick="LVServices_MouseDoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -129,5 +129,6 @@
         <TextBlock Text="Поиск" FontFamily="Tahoma" HorizontalAlignment="Right" Margin="0,0,66,0"/>
         <TextBox x:Name="Search" FontFamily="Tahoma" HorizontalAlignment="Right" Margin="0,10,15,0" Height="25" Width="140" TextChanged="Search_TextChanged"/>
         <Button x:Name="ClearFilters" Style="{StaticResource StyleBtn}" FontFamily="Tahoma" Content="Сбросить фильтры" Height="25" Width="140" Grid.Row="2" Click="ClearFilters_Click"/>
+        <Button x:Name="CloseServices" Style="{StaticResource StyleBtn}" HorizontalAlignment="Left" FontFamily="Tahoma" Content="Ближайшие записи" Height="25" Width="140" Grid.Row="2" Click="CloseServices_Click" Margin="15,0,0,0"/>
     </Grid>
 </Page>
