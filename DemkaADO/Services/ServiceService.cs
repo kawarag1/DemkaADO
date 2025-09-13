@@ -13,7 +13,7 @@ namespace DemkaADO.Services
 {
     internal class ServiceService
     {
-        public static demka_test2Entities1 db = Helper.GetContext();
+        public static demka_test2Entities2 db = Helper.GetContext();
 
         public List<Service> GetServices()
         {

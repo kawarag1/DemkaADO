@@ -9,6 +9,38 @@
       Title="CloseServices" Background="White">
 
     <Grid>
-        
+        <ListView x:Name="appointmentsListView" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Услуга" Width="120" DisplayMemberBinding="{Binding ServiceName}"/>
+                    <GridViewColumn Header="Клиент" Width="150" DisplayMemberBinding="{Binding ClientFullName}"/>
+                    <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Телефон" Width="100" DisplayMemberBinding="{Binding Phone}"/>
+                    <GridViewColumn Header="Дата и время" Width="120">
+                        <GridViewColumn.DisplayMemberBinding>
+                            <Binding Path="StartTime" StringFormat="{}{0:dd.MM.yyyy HH:mm}"/>
+                        </GridViewColumn.DisplayMemberBinding>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Осталось времени" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TimeRemaining}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsLessThanHour}" Value="True">
+                                                    <Setter Property="Foreground" Value="Red"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
